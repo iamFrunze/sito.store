@@ -1,75 +1,30 @@
 package com.byfrunze.sitostore;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.viewpager.widget.ViewPager;
-import androidx.viewpager.widget.ViewPager.OnPageChangeListener;
-
-import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.View.OnFocusChangeListener;
-import android.view.View.OnTouchListener;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.LinearLayout;
-import android.widget.TableLayout;
-import android.widget.ViewFlipper;
 
-import com.rd.PageIndicatorView;
-import com.rd.animation.type.AnimationType;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.ArrayList;
-import java.util.List;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 
 public class MainActivity extends AppCompatActivity {
-
-    private ViewPager viewPager;
-    private PageIndicatorView pageIndicatorView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        viewPager = findViewById(R.id.viewPager);
-
-        LayoutInflater inflater = LayoutInflater.from(this);
-        int[] myPages = {R.layout.start_view_flipper_one, R.layout.start_view_flipper_two,
-                R.layout.start_view_flipper_three, R.layout.start_view_flipper_four};
-
-        List<View> pages = new ArrayList<>();
-        for (int page : myPages) pages.add(inflater.inflate(page, null));
-
-        pageIndicatorView = findViewById(R.id.pageIndicator);
-        pageIndicatorView.setCount(pages.size());
-        pageIndicatorView.setAnimationType(AnimationType.THIN_WORM);
-
-        StartPagerAdapter pagerAdapter = new StartPagerAdapter(pages);
-        viewPager.setAdapter(pagerAdapter);
-        viewPager.setCurrentItem(0);
-        viewPager.setOnPageChangeListener(new OnPageChangeListener(){
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                pageIndicatorView.setSelection(position);
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
-
-
+        BottomNavigationView navView = findViewById(R.id.nav_view);
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.navigation_home, R.id.navigation_catalog, R.id.navigation_cart)
+                .build();
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+        NavigationUI.setupWithNavController(navView, navController);
     }
 
 }

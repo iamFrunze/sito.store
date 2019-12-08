@@ -1,3 +1,28 @@
 <resources>
-    <string name="app_name">Sito.store</string>
+    <string name="app_name">SITO</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse accumsan maximus condimentum. Donec bibendum blandit tempus. Nullam vehicula vel mi id auctor. Proin eu turpis consequat, tincidunt lectus ut, pharetra tellus. Praesent egestas dolor ligula, sed vehicula orci iaculis quis. Nulla facilisi. Etiam eu ligula sed mauris tincidunt consequat eget sed orci. Nulla id pulvinar est, ut dignissim nulla. Cras sit amet ligula eget nisl gravida aliquet.</string>
+
+    <string-array name="intro_slider_heading">
+        <item>Head One</item>
+        <item>Head Two</item>
+        <item>Head Three</item>
+    </string-array>
+
+    <string-array name="intro_slider_description">
+        <item>@string/lorem_ipsum</item>
+        <item>@string/lorem_ipsum</item>
+        <item>@string/lorem_ipsum</item>
+    </string-array>
+    <string name="heading">Heading</string>
+    <string name="intro_skip">Пропустить</string>
+    <string name="next_intro">NEXT</string>
+    <string name="back_intro">BACK</string>
+    <string name="title_activity_main">MainActivity</string>
+
+
+    <string name="title_home">Главная</string>
+    <string name="title_catalog">Каталог</string>
+    <string name="title_cart">Карзина</string>
+    <string name="title_personal_account">Профиль</string>
+    <string name="title_notifications">Уведомления</string>
 </resources>
