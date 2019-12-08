@@ -29,6 +29,7 @@
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
+        android:layout_marginTop="16dp"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@id/guideline3"
@@ -80,6 +81,7 @@
     <RelativeLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/guideline2"
@@ -110,5 +112,37 @@
             android:textSize="36sp"
             android:textStyle="bold" />
 
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline3">
+
+
+        <ImageView
+            android:id="@+id/imageViewBoots"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            app:srcCompat="@drawable/main_boots" />
+
+        <TextView
+            android:id="@+id/textViewBoots"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="#FBC02D"
+            android:backgroundTint="#E64A19"
+            android:backgroundTintMode="src_in"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="@string/boots"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="36sp"
+            android:textStyle="bold" />
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
