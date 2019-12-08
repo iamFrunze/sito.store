@@ -13,22 +13,22 @@
 
     <fragment
         android:id="@+id/navigation_catalog"
-        android:name="com.byfrunze.sitostore.ui.dashboard.DashboardFragment"
-        android:label="@string/title_cart"
+        android:name="com.byfrunze.sitostore.ui.catalog.CatalogFragment"
+        android:label="@string/title_catalog"
         tools:layout="@layout/fragment_catalog" />
 
     <fragment
         android:id="@+id/navigation_cart"
-        android:name="com.byfrunze.sitostore.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:name="com.byfrunze.sitostore.ui.cart.CartFragment"
+        android:label="@string/title_cart"
+        tools:layout="@layout/fragment_cart" />
     <fragment
         android:id="@+id/navigation_personal_account"
-        android:name="com.byfrunze.sitostore.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:name="com.byfrunze.sitostore.ui.personalAccount.PersonalAccountFragment"
+        android:label="@string/title_personal_account"
+        tools:layout="@layout/fragment_personal_account" />
     <fragment
-        android:id="@+id/navigation_cart3"
+        android:id="@+id/navigation_notification"
         android:name="com.byfrunze.sitostore.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />

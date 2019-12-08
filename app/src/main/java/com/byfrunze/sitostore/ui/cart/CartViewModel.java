@@ -1,4 +1,11 @@
 package com.byfrunze.sitostore.ui.cart;
 
-public class CartViewModel {
+import androidx.lifecycle.ViewModel;
+
+public class CartViewModel extends ViewModel {
+
+
+    public CartViewModel() {
+    }
+
 }

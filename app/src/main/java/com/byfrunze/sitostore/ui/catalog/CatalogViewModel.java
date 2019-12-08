@@ -1,4 +1,6 @@
 package com.byfrunze.sitostore.ui.catalog;
 
-public class CatalogViewModel {
+import androidx.lifecycle.ViewModel;
+
+public class CatalogViewModel extends ViewModel {
 }

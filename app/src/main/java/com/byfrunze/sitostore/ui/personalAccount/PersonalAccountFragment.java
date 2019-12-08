@@ -1,4 +1,4 @@
-package com.byfrunze.sitostore.ui.catalog;
+package com.byfrunze.sitostore.ui.personalAccount;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,15 +12,16 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.byfrunze.sitostore.R;
 
-public class CatalogFragment extends Fragment {
+public class PersonalAccountFragment extends Fragment {
 
-    private CatalogViewModel catalogViewModel;
+    private PersonalAccountViewModel personalAccountViewModel;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        catalogViewModel = ViewModelProviders.of(this).get(CatalogViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_catalog, container, false);
+        personalAccountViewModel = ViewModelProviders.of(this).get(PersonalAccountViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_personal_account, container, false);
         return root;
+
     }
 }
