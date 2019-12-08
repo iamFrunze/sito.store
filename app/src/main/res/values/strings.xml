@@ -25,4 +25,12 @@
     <string name="title_cart">Корзина</string>
     <string name="title_personal_account">Профиль</string>
     <string name="title_notifications">Уведомления</string>
+    <string name="microphone">micro</string>
+    <string name="remove">remove</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="sito_main">Sito - место выгодных скидок.</string>
+    <string name="sito_description">Мы ищем товары с большой скидкой и публикуем здесь.</string>
+    <string name="men">Мужское</string>
+    <string name="women">Женское</string>
 </resources>
