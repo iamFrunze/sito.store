@@ -34,4 +34,15 @@
     <string name="men">Мужское</string>
     <string name="women">Женское</string>
     <string name="boots">Кроссовкий от 30%</string>
+    <string name="main_favourite">Избранное</string>
+    <string name="head_form">Нет скидки на интересующий товар?</string>
+    <string name="descr_form">Заполните форму, мы отправим уведомление когда товар появится</string>
+    <string name="your_name">Ваше имя</string>
+    <string name="your_sex">Ваш пол</string>
+    <string name="catagory">Категория</string>
+    <string name="brand">Бренд</string>
+    <string name="your_size">Размер</string>
+    <string name="your_e_mail">Ваш e-mail</string>
+    <string name="okey_person_data">Согласен на обработку персональных данных</string>
+    <string name="say_me">Уведомить</string>
 </resources>

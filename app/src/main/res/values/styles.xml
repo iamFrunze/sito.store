@@ -8,7 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="colorBackgroundFloating">@color/background</item>
     </style>
-    <style name="AppTheme1" parent="Theme.AppCompat.DayNight.NoActionBar">
+    <style name="AppTheme1" parent="Theme.Design.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
