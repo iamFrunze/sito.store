@@ -10,6 +10,7 @@
     android:layout_marginBottom="80dp"
     >
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -303,12 +304,13 @@
                     android:textAlignment="center"
                     android:text="@string/okey_person_data"
                     android:textSize="24sp" />
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/say_me"
                     android:textSize="24sp"
                     />
+
 
 
             </LinearLayout>
