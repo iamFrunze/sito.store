@@ -8,13 +8,12 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="colorBackgroundFloating">@color/background</item>
     </style>
-    <style name="AppTheme1" parent="Theme.MaterialComponents.Light">
+    <style name="AppTheme1" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="actionMenuTextColor">@color/background</item>
-        <item name="colorBackgroundFloating">@color/background</item>
+
     </style>
 
 
