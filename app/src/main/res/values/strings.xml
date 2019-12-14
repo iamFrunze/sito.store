@@ -46,4 +46,107 @@
     <string name="okey_person_data">Согласен на обработку персональных данных</string>
     <string name="say_me">Уведомить</string>
     <string name="edit">edit</string>
+
+    <string-array name="arrayListViewUnisex">
+        <item>Футболки, майки и топы</item>
+        <item>Рубашки и блузы</item>
+        <item>Толстовки и свитеры</item>
+        <item>Костюмы, пиджаки и жакеты</item>
+        <item>Джинсы и одежда из денима</item>
+        <item>Брюки и леггинсы</item>
+        <item>Шорты</item>
+        <item>Платья и сарафаны</item>
+        <item>Юбки</item>
+        <item>Куртки</item>
+        <item>Пальто, шубы и дубленки</item>
+        <item>Спорт</item>
+        <item>Нижнее белье и боди</item>
+        <item>Комбенизоны</item>
+        <item>Обувь (прочее)</item>
+        <item>Кеды и кроссовки</item>
+        <item>Ботинки и сапоги</item>
+        <item>Туфли</item>
+        <item>Лоферы</item>
+        <item>Летняя обувь</item>
+        <item>Без категории</item>
+        <item>Сумки и рюкзаки</item>
+        <item>Кошельки и визитницы</item>
+        <item>Косметички</item>
+        <item>Головные уборы</item>
+        <item>Шарфы и платки</item>
+        <item>Перчатки и варежки</item>
+        <item>Украшения и часы</item>
+        <item>Очки</item>
+        <item>Ремни</item>
+        <item>Галстуки и бабочки</item>
+        <item>Зонты</item>
+    </string-array>
+
+    <string-array name="arrayListViewMen">
+        <item>Одежда (прочее)</item>
+        <item>Футболки и поло</item>
+        <item>Рубашки</item>
+        <item>Толстовки и свитеры</item>
+        <item>Костюмы и пиджаки</item>
+        <item>Джинсы и одежда из денима</item>
+        <item>Брюки и чиносы</item>
+        <item>Шорты</item>
+        <item>Куртки</item>
+        <item>Пальто</item>
+        <item>Спорт</item>
+        <item>Нижнее белье и носки</item>
+        <item>Обувь (прочее)</item>
+        <item>Кеды и кроссовки</item>
+        <item>Ботинки и сапоги</item>
+        <item>Туфли</item>
+        <item>Лоферы и мокасины</item>
+        <item>Летняя обувь</item>
+        <item>Без категории</item>
+        <item>Сумки и рюкзаки</item>
+        <item>Сумки и рюкзаки</item>
+        <item>Кошельки и визитницы</item>
+        <item>Головные уборы</item>
+        <item>Шарфы и платки</item>
+        <item>Перчатки и варежки</item>
+        <item>Украшения и часы</item>
+        <item>Очки</item>
+        <item>Ремни</item>
+        <item>Галстуки и бабочки</item>
+        <item>Зонты</item>
+    </string-array>
+
+    <string-array name="arrayListViewWomen">
+        <item>Одежда (прочее)</item>
+        <item>Футболки, майки и топы</item>
+        <item>Рубашки и блузы</item>
+        <item>Толстовки и свитеры</item>
+        <item>Костюмы, пиджаки и жакеты</item>
+        <item>Джинсы и одежда из денима</item>
+        <item>Брюки и леггинсы</item>
+        <item>Шорты</item>
+        <item>Платья и сарафаны</item>
+        <item>Юбки</item>
+        <item>Куртки</item>
+        <item>Пальто, шубы и дубленки</item>
+        <item>Спорт</item>
+        <item>Нижнее белье и боди</item>
+        <item>Комбенизоны</item>
+        <item>Обувь (прочее)</item>
+        <item>Кеды и кроссовки</item>
+        <item>Ботинки и сапоги</item>
+        <item>Туфли</item>
+        <item>Лоферы</item>
+        <item>Летняя обувь</item>
+        <item>Без категории</item>
+        <item>Сумки и рюкзаки</item>
+        <item>Кошельки и визитницы</item>
+        <item>Косметички</item>
+        <item>Головные уборы</item>
+        <item>Шарфы и платки</item>
+        <item>Перчатки и варежки</item>
+        <item>Украшения и часы</item>
+        <item>Очки</item>
+        <item>Ремни</item>
+        <item>Зонты</item>
+    </string-array>
 </resources>
