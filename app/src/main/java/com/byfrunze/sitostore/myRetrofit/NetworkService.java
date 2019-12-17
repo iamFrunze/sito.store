@@ -17,7 +17,6 @@ public class NetworkService {
 
     public static SitoStoreApi getApi(){
         Gson gson = new GsonBuilder()
-                .setLenient()
                 .create();
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)

@@ -2,7 +2,6 @@ package com.byfrunze.sitostore.ui.catalog;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,24 +14,15 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.viewpager.widget.ViewPager;
 
+import com.byfrunze.sitostore.myRetrofit.JSONUtils;
 import com.byfrunze.sitostore.R;
-import com.byfrunze.sitostore.myRetrofit.NetworkService;
-import com.byfrunze.sitostore.myRetrofit.SitoStoreApi;
 import com.google.android.material.tabs.TabLayout;
-
-
-import java.util.HashMap;
-import java.util.Map;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class CatalogFragment extends Fragment{
 
     private CatalogViewModel catalogViewModel;
 
-    private NetworkService networkService;
-    private SitoStoreApi sitoStoreApi;
+
     private FragmentActivity myContext;
     private ViewPager viewPager;
     private TabLayout tabLayout;
@@ -45,17 +35,14 @@ public class CatalogFragment extends Fragment{
         View root = inflater.inflate(R.layout.fragment_catalog, container, false);
         viewPager = root.findViewById(R.id.viewPager_catalog);
         tabLayout = root.findViewById(R.id.tabLayout_catalog);
-        networkService = NetworkService.getInstance();
-        sitoStoreApi = NetworkService.getApi();
-
-
 
         ViewPagerAdapter adapter =
                 new ViewPagerAdapter(myContext.getSupportFragmentManager());
         adapter.addFragment(new ListOfProductUnisex(), "Unisex");
         adapter.addFragment(new ListOfProductMen(), "Men");
         adapter.addFragment(new ListOfProductWoman(), "Women");
-
+        JSONUtils jsonUtils = new JSONUtils();
+        jsonUtils.getProduct();
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
         return root;
@@ -76,25 +63,5 @@ public class CatalogFragment extends Fragment{
         super.onAttach(context);
 
     }
-
-    public void getProduct() {
-        Map<String, Integer> mapJson = new HashMap<>();
-        mapJson.put("page", 1);
-        Call<Object> call = sitoStoreApi.getProduct(mapJson);
-        call.enqueue(new Callback<Object>() {
-
-            @Override
-            public void onResponse(Call<Object> call, Response<Object> response) {
-                Log.i("RETRO", response.body().toString());
-            }
-
-            @Override
-            public void onFailure(Call<Object> call, Throwable t) {
-            }
-        });
-    }
-
-
-
 
 }

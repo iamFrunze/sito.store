@@ -1,5 +1,8 @@
 package com.byfrunze.sitostore.myRetrofit;
 
+import com.byfrunze.sitostore.sitoStoreElementsOfProducts.POJOProducts;
+
+import java.util.List;
 import java.util.Map;
 
 import okhttp3.ResponseBody;
@@ -18,5 +21,11 @@ public interface SitoStoreApi {
 
     @FormUrlEncoded
     @POST("/api/products/getProducts")
-    Call<Object> getProduct(@FieldMap Map<String, Integer> map);
+    Call<POJOProducts> getProduct(@FieldMap Map<String, Integer> map);
+
+    @FormUrlEncoded
+    @POST("/api/products/getProducts")
+    Call<Object> getProductObject(@FieldMap Map<String, Integer> map);
+
+
 }

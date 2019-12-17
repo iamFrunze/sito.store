@@ -22,7 +22,7 @@
 
     <string name="title_home">Главная</string>
     <string name="title_catalog">Каталог</string>
-    <string name="title_cart">Корзина</string>
+    <string name="title_cart">Избранное</string>
     <string name="title_personal_account">Профиль</string>
     <string name="title_notifications">Уведомления</string>
     <string name="microphone">micro</string>
@@ -33,19 +33,36 @@
     <string name="sito_description">Мы ищем товары с большой скидкой и публикуем здесь.</string>
     <string name="men">Мужское</string>
     <string name="women">Женское</string>
-    <string name="boots">Кроссовкий от 30%</string>
+    <string name="boots">Кроссовки от 30%</string>
     <string name="main_favourite">Избранное</string>
     <string name="head_form">Нет скидки на интересующий товар?</string>
     <string name="descr_form">Заполните форму, мы отправим уведомление когда товар появится</string>
     <string name="your_name">Ваше имя</string>
     <string name="your_sex">Ваш пол</string>
-    <string name="catagory">Категория</string>
+    <string name="category">Категория</string>
     <string name="brand">Бренд</string>
     <string name="your_size">Размер</string>
     <string name="your_e_mail">Ваш e-mail</string>
     <string name="okey_person_data">Согласен на обработку персональных данных</string>
     <string name="say_me">Уведомить</string>
     <string name="edit">edit</string>
+    <string name="rub">RUB</string>
+    <string name="search_hint">Поиск</string>
+    <string name="def_title">Title</string>
+    <string name="def_brand">Brand</string>
+    <string name="def_description">Description</string>
+    <string name="title_color">Цвет:</string>
+    <string name="def_color">Color</string>
+    <string name="title_size">Размер:</string>
+    <string name="def_size">Size</string>
+    <string name="def_rub">RUB</string>
+    <string name="def_price">Price</string>
+    <string name="def_sale">Sale</string>
+    <string name="def_oldprice">OldPrice</string>
+    <string name="delete">Удалить</string>
+    <string name="title_sale">Скидка</string>
+    <string name="sroting">Сортировка</string>
+    <string name="filter">Фильтр</string>
 
     <string-array name="arrayListViewUnisex">
         <item>Футболки, майки и топы</item>

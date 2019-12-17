@@ -3,7 +3,9 @@ package com.byfrunze.sitostore;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,7 +16,7 @@ import com.rd.PageIndicatorView;
 import com.rd.animation.type.AnimationType;
 
 public class StartActivity extends FragmentActivity {
-
+    private static final String MY_SETTINGS = "my_settings";
     private ViewPager viewPager;
     private SliderAdapter sliderAdapter;
     private PageIndicatorView pageIndicatorView;
@@ -27,7 +29,7 @@ public class StartActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
-
+        saveActivityPreferences();
         textViewBack = findViewById(R.id.btnBackIntro);
         textViewNext = findViewById(R.id.btnNextIntro);
         textViewBack.setVisibility(View.INVISIBLE);
@@ -45,6 +47,7 @@ public class StartActivity extends FragmentActivity {
         pageIndicatorView = findViewById(R.id.pageIndicator);
         pageIndicatorView.setCount(countPage);
         pageIndicatorView.setAnimationType(AnimationType.DROP);
+
 
     }
 
@@ -89,16 +92,31 @@ public class StartActivity extends FragmentActivity {
 
 
     public void OnClickBackIntro(View view) {
-        viewPager.setCurrentItem( currentPage - 1, true);
+        viewPager.setCurrentItem(currentPage - 1, true);
     }
 
     public void OnClickNextIntro(View view) {
-        viewPager.setCurrentItem( currentPage + 1, true);
+        viewPager.setCurrentItem(currentPage + 1, true);
 
     }
 
     public void OnClickSkipIntro(View view) {
         Intent intent = new Intent(StartActivity.this, MainActivity.class);
         startActivity(intent);
-     }
+    }
+
+    protected void saveActivityPreferences() {
+        SharedPreferences activityPreferences = getSharedPreferences(MY_SETTINGS, Activity.MODE_PRIVATE);
+        boolean hasVisited = activityPreferences.getBoolean("hasVisited", false);
+        if(!hasVisited){
+            SharedPreferences.Editor editor = activityPreferences.edit();
+            editor.putBoolean("hasVisited", true);
+            editor.apply();
+        }else{
+            Intent intent = new Intent(StartActivity.this, MainActivity.class);
+            startActivity(intent);
+        }
+
+
+    }
 }

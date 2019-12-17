@@ -23,11 +23,6 @@
         android:label="@string/title_cart"
         tools:layout="@layout/fragment_cart" />
     <fragment
-        android:id="@+id/navigation_personal_account"
-        android:name="com.byfrunze.sitostore.ui.personalAccount.PersonalAccountFragment"
-        android:label="@string/title_personal_account"
-        tools:layout="@layout/fragment_personal_account" />
-    <fragment
         android:id="@+id/navigation_notification"
         android:name="com.byfrunze.sitostore.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"

@@ -16,5 +16,6 @@
 
     <color name="rippleEffectMaskColor">#FAFAFA</color>
     <color name="rippleEffectWaveColor">#bbbbbb</color>
+    <color name="background_card">#7B1FA2</color>
 
 </resources>
