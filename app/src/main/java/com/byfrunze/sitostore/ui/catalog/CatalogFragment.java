@@ -41,8 +41,6 @@ public class CatalogFragment extends Fragment{
         adapter.addFragment(new ListOfProductUnisex(), "Unisex");
         adapter.addFragment(new ListOfProductMen(), "Men");
         adapter.addFragment(new ListOfProductWoman(), "Women");
-        JSONUtils jsonUtils = new JSONUtils();
-        jsonUtils.getProduct();
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
         return root;

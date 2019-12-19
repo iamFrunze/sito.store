@@ -37,14 +37,12 @@ public class ListOfProductUnisex extends Fragment {
         ArrayAdapter adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, products);
         productsList.setAdapter(adapter);
 
-        productsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        productsList.setOnItemClickListener((parent, view, position, id) -> {
 
-                Intent intent = new Intent(getContext(), TargetItemActivity.class);
-                intent.putExtra("Title", products[position]);
-                startActivity(intent);
-            }
+            Intent intent = new Intent(getContext(), TargetItemActivity.class);
+            intent.putExtra("Title", products[position]);
+            intent.putExtra("sex_id", 0);
+            startActivity(intent);
         });
         return root;
 
@@ -55,8 +53,8 @@ public class ListOfProductUnisex extends Fragment {
         super.onActivityCreated(savedInstanceState);
     }
 
-    public Map<String, Integer> createMap() {
-        Map<String, Integer> unisex = new HashMap<>();
+    static public HashMap<String, Integer> createMap() {
+        HashMap<String, Integer> unisex = new HashMap<>();
         unisex.put("Одежда (прочее)", 1000);
         unisex.put("Футболки, майки и топы", 1001);
         unisex.put("Рубашки и блузы", 1002);

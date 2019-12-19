@@ -1,21 +1,16 @@
 package com.byfrunze.sitostore.myRetrofit;
 
 import com.byfrunze.sitostore.sitoStoreElementsOfProducts.POJOProducts;
+import com.byfrunze.sitostore.ui.catalog.GetProducts;
 
-import java.util.List;
 import java.util.Map;
 
-import okhttp3.ResponseBody;
 import retrofit2.Call;
-import retrofit2.Response;
 import retrofit2.http.Body;
-import retrofit2.http.Field;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
-import retrofit2.http.Multipart;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
-import retrofit2.http.Part;
-import retrofit2.http.Query;
 
 public interface SitoStoreApi {
 
@@ -27,5 +22,6 @@ public interface SitoStoreApi {
     @POST("/api/products/getProducts")
     Call<Object> getProductObject(@FieldMap Map<String, Integer> map);
 
-
+    @POST("/api/products/getProducts")
+    Call<POJOProducts> getProductCategories(@Header ("Content-Type") String type, @Body GetProducts GetProducts);
 }

@@ -16,7 +16,11 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.byfrunze.sitostore.R;
+import com.byfrunze.sitostore.ui.catalog.RxSearch;
 
+import java.util.concurrent.TimeUnit;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
 
 
 public class HomeFragment extends Fragment {
@@ -52,25 +56,33 @@ public class HomeFragment extends Fragment {
 
         searchView = view.findViewById(R.id.search_view);
 
-        searchView.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                searchView.setIconified(false);
-            }
-        });
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                Log.i("Search", query);
-                return false;
-            }
+        RxSearch.fromSearchView(searchView)
+                .debounce(300, TimeUnit.MILLISECONDS)
+                .filter(item->item.length() > 1)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(query ->{
+                    Log.i("SUB", query);
 
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                Log.i("Search", "CHANGE " + newText);
-                return false;
-            }
-        });
+                });
+//        searchView.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View v) {
+//                searchView.setIconified(false);
+//            }
+//        });
+//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//                Log.i("Search", query);
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String newText) {
+//                Log.i("Search", "CHANGE " + newText);
+//                return false;
+//            }
+//        });
     }
 
 

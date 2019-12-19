@@ -6,14 +6,14 @@ import android.util.Log;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.byfrunze.sitostore.myRetrofit.NetworkService;
-import com.byfrunze.sitostore.myRetrofit.SitoStoreApi;
-import com.byfrunze.sitostore.sitoStoreElementsOfProducts.Info;
 import com.byfrunze.sitostore.sitoStoreElementsOfProducts.POJOProducts;
 import com.byfrunze.sitostore.sitoStoreElementsOfProducts.Product;
 import com.byfrunze.sitostore.ui.catalog.CatalogProductAdapter;
+import com.byfrunze.sitostore.ui.catalog.GetProducts;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,7 +47,6 @@ public class JSONUtils {
                 RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(context);
                 recyclerView.setLayoutManager(layoutManager);
                 recyclerView.setAdapter(catalogProductAdapter);
-                Log.i("POJO", response.body().getProducts().get(1).getBrand());
             }
 
             @Override
@@ -55,22 +54,28 @@ public class JSONUtils {
             }
         });
     }
-    public void getProduct( ) {
-        Map<String, Integer> mapJson = new HashMap<>();
-        mapJson.put("page", 1);
-        Call<Object> call = sitoStoreApi.getProductObject(mapJson);
-        call.enqueue(new Callback<Object>() {
+
+    public void getProductsForCatalog(int sex_id, int category, final RecyclerView recyclerView, final Context context) {
+        List<Integer> categoriesList = new ArrayList<>();
+        categoriesList.add(category);
+        GetProducts product = new GetProducts(sex_id,1, categoriesList);
+        Call<POJOProducts> call = sitoStoreApi.getProductCategories("application/json", product);
+        call.enqueue(new Callback<POJOProducts>() {
 
             @Override
-            public void onResponse(Call<Object> call, Response<Object> response) {
-                Log.i("RETRO", response.body().toString());
+            public void onResponse(Call<POJOProducts> call, Response<POJOProducts> response) {
+                resProducts = response.body().getProducts();
+                catalogProductAdapter = new CatalogProductAdapter(resProducts);
+                RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(context);
+                recyclerView.setLayoutManager(layoutManager);
+                recyclerView.setAdapter(catalogProductAdapter);
             }
 
             @Override
-            public void onFailure(Call<Object> call, Throwable t) {
+            public void onFailure(Call<POJOProducts> call, Throwable t) {
+                Log.i("RETRO", t.getMessage());
             }
         });
     }
-
 
 }

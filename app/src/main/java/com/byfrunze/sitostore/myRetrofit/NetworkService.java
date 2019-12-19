@@ -16,11 +16,10 @@ public class NetworkService {
     public static final String BASE_URL = "http://sito.store:8081";
 
     public static SitoStoreApi getApi(){
-        Gson gson = new GsonBuilder()
-                .create();
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create(gson))
+                .addConverterFactory(GsonConverterFactory.create())
                 .build();
         SitoStoreApi service = retrofit.create(SitoStoreApi.class);
         return service;
