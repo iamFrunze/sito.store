@@ -1,4 +1,4 @@
-package com.byfrunze.sitostore;
+package com.byfrunze.sitostore.Activities;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
+
+import com.byfrunze.sitostore.R;
 
 public class SliderAdapter extends PagerAdapter {
 

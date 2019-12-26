@@ -1,4 +1,4 @@
-package com.byfrunze.sitostore.sitoStoreElementsOfProducts;
+package com.byfrunze.sitostore.productsForAdapter;
 
 
 public class MyProduct {
@@ -18,6 +18,22 @@ public class MyProduct {
     private String price;
     private String oldPrice;
     private String sale;
+    private String phrase;
+
+
+
+
+    public MyProduct(String phrase) {
+        this.phrase = phrase;
+    }
+
+    public String getPhrase() {
+        return phrase;
+    }
+
+    public void setPhrase(String phrase) {
+        this.phrase = phrase;
+    }
 
     public MyProduct(int id, String title, String description, String URL, String image, String brand, String size, String color, int sex_id, String sex, int category_id, String category, String price, String oldPrice, String sale) {
         this.id = id;

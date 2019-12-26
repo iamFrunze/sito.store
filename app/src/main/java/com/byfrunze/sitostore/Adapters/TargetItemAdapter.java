@@ -1,4 +1,4 @@
-package com.byfrunze.sitostore.ui.catalog;
+package com.byfrunze.sitostore.Adapters;
 
 import android.graphics.Paint;
 import android.view.LayoutInflater;
@@ -11,16 +11,20 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.byfrunze.sitostore.R;
-import com.byfrunze.sitostore.sitoStoreElementsOfProducts.MyProduct;
-import com.byfrunze.sitostore.sitoStoreElementsOfProducts.Product;
+import com.byfrunze.sitostore.productsForAdapter.Product;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class CatalogProductAdapter extends RecyclerView.Adapter<CatalogProductAdapter.CustomViewHolder> {
+public class TargetItemAdapter extends RecyclerView.Adapter<TargetItemAdapter.CustomViewHolder> {
     private List<Product> productList;
 
-    public CatalogProductAdapter(List<Product> productList) {
+    public void setProductList(List<Product> productList) {
+        this.productList = productList;
+        notifyDataSetChanged();
+    }
+
+    public TargetItemAdapter(List<Product> productList) {
         this.productList = productList;
     }
     private final String RUB = " RUB";
@@ -44,7 +48,7 @@ public class CatalogProductAdapter extends RecyclerView.Adapter<CatalogProductAd
         holder.textViewOldPrice.setText(olPrice);
         holder.textViewOldPrice.setPaintFlags(holder.textViewOldPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         String sale = myProduct.getSale() + RUB;
-        holder.textViewSale.setText(price);
+        holder.textViewSale.setText(sale);
 
     }
 

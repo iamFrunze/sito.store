@@ -18,6 +18,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ListOfProductWoman extends Fragment {
+
+    private String BUNDLE_LAST_PAGE = "LAST_PAGE";
+    private String BUNDLE_NAME_PAGE = "LIST WOMEN PAGE";
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +42,8 @@ public class ListOfProductWoman extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getContext(), TargetItemActivity.class);
                 intent.putExtra("Title", products[position]);
-                intent.putExtra("sex_id", 2);
+                intent.putExtra(BUNDLE_LAST_PAGE, BUNDLE_NAME_PAGE);
+
                 startActivity(intent);
             }
         });

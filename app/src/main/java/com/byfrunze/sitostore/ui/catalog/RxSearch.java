@@ -3,6 +3,8 @@ package com.byfrunze.sitostore.ui.catalog;
 import androidx.appcompat.widget.SearchView;
 
 import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.subjects.BehaviorSubject;
 

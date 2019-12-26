@@ -1,4 +1,4 @@
-package com.byfrunze.sitostore.ui.catalog;
+package com.byfrunze.sitostore.Adapters;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

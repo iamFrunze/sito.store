@@ -7,24 +7,22 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.byfrunze.sitostore.Adapters.ProductAdapter;
 import com.byfrunze.sitostore.R;
-import com.byfrunze.sitostore.sitoStoreElementsOfProducts.MyProduct;
+import com.byfrunze.sitostore.productsForAdapter.MyProduct;
 
 import java.util.ArrayList;
 
 public class CartFragment extends Fragment{
 
-    private CartViewModel cartViewModel;
 
     private RecyclerView recyclerView;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        cartViewModel = ViewModelProviders.of(this).get(CartViewModel.class);
         View root = inflater.inflate(R.layout.fragment_cart, container, false);
         recyclerView = root.findViewById(R.id.recycleViewCart);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

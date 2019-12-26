@@ -63,6 +63,7 @@
     <string name="title_sale">Скидка</string>
     <string name="sroting">Сортировка</string>
     <string name="filter">Фильтр</string>
+    <string name="settings">Settings</string>
 
     <string-array name="arrayListViewUnisex">
         <item>Футболки, майки и топы</item>
@@ -166,4 +167,7 @@
         <item>Ремни</item>
         <item>Зонты</item>
     </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

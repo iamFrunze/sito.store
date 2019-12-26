@@ -1,9 +1,8 @@
-package com.byfrunze.sitostore.ui.cart;
+package com.byfrunze.sitostore.Adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -11,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.byfrunze.sitostore.R;
-import com.byfrunze.sitostore.sitoStoreElementsOfProducts.MyProduct;
+import com.byfrunze.sitostore.productsForAdapter.MyProduct;
 import com.squareup.picasso.*;
 
 import java.util.ArrayList;
@@ -35,7 +34,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         TextView textViewPrice;
         TextView textViewOldPrice;
         TextView textViewSale;
-        Button buttonDelete;
 
         public ProductViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -48,7 +46,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             textViewPrice = itemView.findViewById(R.id.textViewRecCartPrice);
             textViewOldPrice = itemView.findViewById(R.id.textViewRecCartOldPrice);
             textViewSale = itemView.findViewById(R.id.textViewRecCartSale);
-            buttonDelete = itemView.findViewById(R.id.buttonRecCartDelete);
 
         }
 
@@ -57,7 +54,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     @NonNull
     @Override
     public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_for_cart, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.search_list_item, parent, false);
         return new ProductViewHolder(view);
     }
 

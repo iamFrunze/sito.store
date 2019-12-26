@@ -1,4 +1,4 @@
-package com.byfrunze.sitostore.sitoStoreElementsOfProducts;
+package com.byfrunze.sitostore.productsForAdapter;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;

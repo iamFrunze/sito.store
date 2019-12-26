@@ -11,16 +11,15 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.viewpager.widget.ViewPager;
 
-import com.byfrunze.sitostore.myRetrofit.JSONUtils;
+import com.byfrunze.sitostore.Adapters.ViewPagerAdapter;
 import com.byfrunze.sitostore.R;
 import com.google.android.material.tabs.TabLayout;
 
+
 public class CatalogFragment extends Fragment{
 
-    private CatalogViewModel catalogViewModel;
 
 
     private FragmentActivity myContext;
@@ -31,7 +30,6 @@ public class CatalogFragment extends Fragment{
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        catalogViewModel = ViewModelProviders.of(this).get(CatalogViewModel.class);
         View root = inflater.inflate(R.layout.fragment_catalog, container, false);
         viewPager = root.findViewById(R.id.viewPager_catalog);
         tabLayout = root.findViewById(R.id.tabLayout_catalog);

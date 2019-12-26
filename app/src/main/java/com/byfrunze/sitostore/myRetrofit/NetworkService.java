@@ -16,7 +16,6 @@ public class NetworkService {
     public static final String BASE_URL = "http://sito.store:8081";
 
     public static SitoStoreApi getApi(){
-
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())

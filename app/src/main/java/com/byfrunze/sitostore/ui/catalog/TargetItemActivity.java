@@ -3,91 +3,89 @@ package com.byfrunze.sitostore.ui.catalog;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
-import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.SearchView.OnQueryTextListener;
 
+import com.byfrunze.sitostore.ArgRequest.GetProducts;
 import com.byfrunze.sitostore.R;
 import com.byfrunze.sitostore.myRetrofit.JSONUtils;
-import com.byfrunze.sitostore.myRetrofit.NetworkService;
-import com.byfrunze.sitostore.myRetrofit.SitoStoreApi;
-import com.byfrunze.sitostore.sitoStoreElementsOfProducts.MyProduct;
 
-import org.reactivestreams.Subscriber;
-import org.reactivestreams.Subscription;
-
-import java.util.Set;
-import java.util.concurrent.TimeUnit;
-
-import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
-import io.reactivex.ObservableOnSubscribe;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Cancellable;
-import retrofit2.Call;
+import java.util.Collections;
 
 public class TargetItemActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private CatalogProductAdapter adapter;
-    private final String PAGE = "page";
-    Toolbar toolbar;
     private int category;
-    private int sex_id;
+    private JSONUtils jsonUtils;
+
+    private String BUNDLE_LAST_PAGE = "LAST_PAGE";
+    private String BUNDLE_HOME_KEY = "HOME PAGE";
+    private String BUNDLE_FROM_MEN = "MEN";
+    private String BUNDLE_FROM_WOMEN = "WOMEN";
+    private String BUNDLE_LIST_WOMEN = "LIST WOMEN PAGE";
+    private String BUNDLE_LIST_UNISEX = "LIST UNISEX PAGE";
+    private String BUNDLE_LIST_MEN = "LIST MEN PAGE";
+    String titleCategory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_target_item);
-        Intent bundle = getIntent();
-        setupActionBar(bundle.getExtras());
-        JSONUtils jsonUtils = new JSONUtils();
+        Bundle bundle = getIntent().getExtras();
         recyclerView = findViewById(R.id.recycler_view_target);
-        String titleCategory = bundle.getStringExtra("Title");
-        sex_id = bundle.getIntExtra("sex_id", 0);
-        switch (sex_id) {
-            case 0:
-                category = ListOfProductUnisex.createMap().get(titleCategory);
-                break;
-            case 1:
+        setupActionBar(bundle);
+        titleCategory = bundle.getString("Title");
+        jsonUtils = new JSONUtils(recyclerView, this);
+        setItems(bundle);
+
+
+    }
+
+    public void setItems(Bundle bundle) {
+        GetProducts getProducts = new GetProducts();
+
+        if (!bundle.isEmpty()) {
+            if (bundle.getString(BUNDLE_LAST_PAGE).equals(BUNDLE_HOME_KEY)) {
+
+                if (bundle.getString(BUNDLE_HOME_KEY).equals(BUNDLE_FROM_MEN)) {
+                    getProducts.setSex_id(1);
+                    jsonUtils.getProductsApi(getProducts);
+                }
+                if (bundle.getString(BUNDLE_HOME_KEY).equals(BUNDLE_FROM_WOMEN)) {
+                    getProducts.setSex_id(2);
+                    getProducts.getCategories(2);
+                    jsonUtils.getProductsApi(getProducts);
+                }
+            }
+            if (bundle.getString(BUNDLE_LAST_PAGE).equals(BUNDLE_LIST_MEN)) {
                 category = ListOfProductMen.createMap().get(titleCategory);
-                break;
-            case 2:
+                getProducts.setCategories(Collections.singletonList(category));
+                getProducts.setSex_id(1);
+                jsonUtils.getProductsApi(getProducts);
+            }
+            if (bundle.getString(BUNDLE_LAST_PAGE).equals(BUNDLE_LIST_WOMEN)) {
                 category = ListOfProductWoman.createMap().get(titleCategory);
-                break;
-            default:
-                category = 0;
+                getProducts.setCategories(Collections.singletonList(category));
+                getProducts.setSex_id(2);
+                jsonUtils.getProductsApi(getProducts);
+            }
+            if (bundle.getString(BUNDLE_LAST_PAGE).equals(BUNDLE_LIST_UNISEX)) {
+                category = ListOfProductUnisex.createMap().get(titleCategory);
+                getProducts.setCategories(Collections.singletonList(category));
+                getProducts.setSex_id(0);
+                jsonUtils.getProductsApi(getProducts);
+            }
 
         }
-        Log.i("INFO", sex_id + " " + category);
-        jsonUtils.getProductsForCatalog(sex_id, category, recyclerView, this);
-        toolbar = findViewById(R.id.toolbar_item_catalog);
-
 
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.catalog_search, menu);
-        MenuItem menuItem;
-        SearchView searchView = (SearchView) menu.findItem(R.id.menu_catalog_search).getActionView();
-        RxSearch.fromSearchView(searchView)
-                .debounce(300, TimeUnit.MILLISECONDS)
-                .filter(item -> item.length() > 1)
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(query -> {
-                    Log.i("SUB", query);
-
-                });
+        getMenuInflater().inflate(R.menu.menu_search, menu);
         return true;
     }
 
@@ -96,7 +94,6 @@ public class TargetItemActivity extends AppCompatActivity {
         actionBar.setHomeButtonEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setTitle(bundle.getString("Title"));
-        bundle.clear();
     }
 
     @Override

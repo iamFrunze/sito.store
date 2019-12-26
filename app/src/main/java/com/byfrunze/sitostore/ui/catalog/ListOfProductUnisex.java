@@ -2,25 +2,24 @@ package com.byfrunze.sitostore.ui.catalog;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.byfrunze.sitostore.MainActivity;
 import com.byfrunze.sitostore.R;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 public class ListOfProductUnisex extends Fragment {
+
+    private String BUNDLE_LAST_PAGE = "LAST_PAGE";
+    private String BUNDLE_NAME_PAGE = "LIST UNISEX PAGE";
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +40,8 @@ public class ListOfProductUnisex extends Fragment {
 
             Intent intent = new Intent(getContext(), TargetItemActivity.class);
             intent.putExtra("Title", products[position]);
-            intent.putExtra("sex_id", 0);
+            intent.putExtra(BUNDLE_LAST_PAGE, BUNDLE_NAME_PAGE);
+
             startActivity(intent);
         });
         return root;

@@ -6,17 +6,14 @@ import android.util.Log;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.byfrunze.sitostore.sitoStoreElementsOfProducts.POJOProducts;
-import com.byfrunze.sitostore.sitoStoreElementsOfProducts.Product;
-import com.byfrunze.sitostore.ui.catalog.CatalogProductAdapter;
-import com.byfrunze.sitostore.ui.catalog.GetProducts;
+import com.byfrunze.sitostore.productsForAdapter.POJOProducts;
+import com.byfrunze.sitostore.productsForAdapter.Product;
+import com.byfrunze.sitostore.Adapters.TargetItemAdapter;
+import com.byfrunze.sitostore.ArgRequest.GetProducts;
+import com.byfrunze.sitostore.productsForAdapter.MainSearch;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -27,30 +24,47 @@ public class JSONUtils {
 
     private NetworkService networkService;
     private SitoStoreApi sitoStoreApi;
-    private List<Product> resProducts ;
-    private CatalogProductAdapter catalogProductAdapter;
+    private List<Product> resProducts;
+    private TargetItemAdapter targetItemAdapter;
+    private RecyclerView recyclerView;
+    private Context contex;
+    String TAG = "TAG";
 
-    public JSONUtils(){
-        networkService = NetworkService.getInstance();
-        sitoStoreApi = NetworkService.getApi();
+    public JSONUtils(RecyclerView recyclerView, Context contex) {
+        this.networkService = NetworkService.getInstance();
+        this.sitoStoreApi = NetworkService.getApi();
+        this.recyclerView = recyclerView;
+        Log.i("INFO", recyclerView.toString());
+        this.contex = contex;
     }
-    public void getProduct(String page, int value, final RecyclerView recyclerView, final Context context) {
-        Map<String, Integer> mapJson = new HashMap<>();
-        mapJson.put(page, value);
-        Call<POJOProducts> call = sitoStoreApi.getProduct(mapJson);
+
+    public JSONUtils() {
+        this.networkService = NetworkService.getInstance();
+        this.sitoStoreApi = NetworkService.getApi();
+    }
+
+
+
+
+
+
+    public void getProductsApi(GetProducts getProducts) {
+        GetProducts product = getProducts;
+        Call<POJOProducts> call = sitoStoreApi.getProductCategories("application/json", product);
         call.enqueue(new Callback<POJOProducts>() {
 
             @Override
             public void onResponse(Call<POJOProducts> call, Response<POJOProducts> response) {
                 resProducts = response.body().getProducts();
-                catalogProductAdapter = new CatalogProductAdapter(resProducts);
-                RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(context);
+                targetItemAdapter = new TargetItemAdapter(resProducts);
+                LinearLayoutManager layoutManager = new LinearLayoutManager(contex, LinearLayoutManager.VERTICAL, false);
                 recyclerView.setLayoutManager(layoutManager);
-                recyclerView.setAdapter(catalogProductAdapter);
+                recyclerView.setAdapter(targetItemAdapter);
             }
 
             @Override
             public void onFailure(Call<POJOProducts> call, Throwable t) {
+                Log.i("RETRO", t.getMessage());
             }
         });
     }
@@ -58,17 +72,39 @@ public class JSONUtils {
     public void getProductsForCatalog(int sex_id, int category, final RecyclerView recyclerView, final Context context) {
         List<Integer> categoriesList = new ArrayList<>();
         categoriesList.add(category);
-        GetProducts product = new GetProducts(sex_id,1, categoriesList);
+        GetProducts product = new GetProducts(sex_id, 1, categoriesList);
         Call<POJOProducts> call = sitoStoreApi.getProductCategories("application/json", product);
         call.enqueue(new Callback<POJOProducts>() {
 
             @Override
             public void onResponse(Call<POJOProducts> call, Response<POJOProducts> response) {
                 resProducts = response.body().getProducts();
-                catalogProductAdapter = new CatalogProductAdapter(resProducts);
+                targetItemAdapter = new TargetItemAdapter(resProducts);
                 RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(context);
                 recyclerView.setLayoutManager(layoutManager);
-                recyclerView.setAdapter(catalogProductAdapter);
+                recyclerView.setAdapter(targetItemAdapter);
+                Log.i("PROD", resProducts.toString() + "\n" + resProducts.get(1));
+            }
+
+            @Override
+            public void onFailure(Call<POJOProducts> call, Throwable t) {
+                Log.i("RETRO", t.getMessage());
+            }
+        });
+    }
+
+    public void getProductsOnSearching(String text) {
+        MainSearch mainSearch = new MainSearch(text);
+        Call<POJOProducts> call = sitoStoreApi.getMainSearch("application/json", mainSearch);
+        call.enqueue(new Callback<POJOProducts>() {
+
+            @Override
+            public void onResponse(Call<POJOProducts> call, Response<POJOProducts> response) {
+                resProducts = response.body().getProducts();
+                targetItemAdapter = new TargetItemAdapter(resProducts);
+                RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(contex);
+                recyclerView.setLayoutManager(layoutManager);
+                recyclerView.setAdapter(targetItemAdapter);
             }
 
             @Override
