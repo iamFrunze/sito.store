@@ -17,6 +17,7 @@ public class GetProducts {
     private List<Integer> prices;
     private List<Integer> sales;
     private int limit;
+    private boolean isFavourite;
 
 
     public GetProducts(int page, List<String> brands, List<Integer> categories, List<String> sizes, List<String> colors, List<Integer> prices, List<Integer> sales, int limit) {
@@ -48,6 +49,14 @@ public class GetProducts {
         this.page = 1;
 
         this.limit = 10;
+    }
+
+    public boolean isFavourite() {
+        return isFavourite;
+    }
+
+    public void setFavourite(boolean favourite) {
+        isFavourite = favourite;
     }
 
     public void setSex_id(int sex_id) {

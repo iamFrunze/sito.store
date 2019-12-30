@@ -94,4 +94,5 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="?attr/actionBarSize"
         android:scrollbars="vertical" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

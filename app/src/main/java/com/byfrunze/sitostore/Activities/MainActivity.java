@@ -2,9 +2,11 @@ package com.byfrunze.sitostore.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.byfrunze.sitostore.FavouriteDataBase;
 import com.byfrunze.sitostore.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -14,10 +16,14 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
+
 public class MainActivity extends AppCompatActivity {
 
 
     BottomNavigationView navView;
+    private Realm realm;
 
 
     @Override
@@ -30,10 +36,6 @@ public class MainActivity extends AppCompatActivity {
         // menu should be considered as top level destinations.
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupWithNavController(navView, navController);
-
-
-
-
     }
 
     @Override

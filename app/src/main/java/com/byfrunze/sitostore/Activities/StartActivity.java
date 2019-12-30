@@ -14,6 +14,9 @@ import com.byfrunze.sitostore.R;
 import com.rd.PageIndicatorView;
 import com.rd.animation.type.AnimationType;
 
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
+
 public class StartActivity extends FragmentActivity {
     private static final String MY_SETTINGS = "my_settings";
     private ViewPager viewPager;
@@ -46,6 +49,11 @@ public class StartActivity extends FragmentActivity {
         pageIndicatorView = findViewById(R.id.pageIndicator);
         pageIndicatorView.setCount(countPage);
         pageIndicatorView.setAnimationType(AnimationType.DROP);
+
+        Realm.init(this);
+        RealmConfiguration realmConfig = new RealmConfiguration.Builder()
+                .build();
+        Realm.setDefaultConfiguration(realmConfig);
 
 
     }

@@ -41,63 +41,14 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textViewRecCartBrand"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="@string/def_brand"
-            app:layout_constraintBottom_toTopOf="@+id/textViewRecCartDescription"
-            app:layout_constraintStart_toEndOf="@+id/textViewRecCartTitle"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
             android:id="@+id/textViewRecCartDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:text="@string/def_description"
-            app:layout_constraintBottom_toTopOf="@+id/textViewRecCartTitleColor"
-            app:layout_constraintStart_toEndOf="@+id/imageViewRecCartProduct"
-            app:layout_constraintTop_toBottomOf="@+id/textViewRecCartTitle" />
-
-        <TextView
-            android:id="@+id/textViewRecCartTitleColor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="@string/title_color"
-            app:layout_constraintBottom_toTopOf="@+id/textViewRecCartTitleSize"
-            app:layout_constraintStart_toEndOf="@+id/imageViewRecCartProduct"
-            app:layout_constraintTop_toBottomOf="@+id/textViewRecCartDescription" />
-
-        <TextView
-            android:id="@+id/textViewRecCartColor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="@string/def_color"
-            app:layout_constraintBottom_toTopOf="@+id/textViewRecCartTitleSize"
-            app:layout_constraintStart_toEndOf="@+id/textViewRecCartTitleColor"
-            app:layout_constraintTop_toBottomOf="@+id/textViewRecCartDescription" />
-
-        <TextView
-            android:id="@+id/textViewRecCartTitleSize"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="@string/title_size"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageViewRecCartProduct"
-            app:layout_constraintTop_toBottomOf="@+id/textViewRecCartTitleColor" />
-
-        <TextView
-            android:id="@+id/textViewRecCartSize"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="@string/def_size"
-            app:layout_constraintStart_toEndOf="@+id/textViewRecCartTitleSize"
-            app:layout_constraintTop_toTopOf="@+id/textViewRecCartTitleSize" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewRecCartTitle" />
 
         <TextView
             android:id="@+id/textViewRecCartRUBPr"

@@ -2,6 +2,7 @@ package com.byfrunze.sitostore.myRetrofit;
 
 import android.content.Context;
 import android.util.Log;
+import android.view.View;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -30,12 +31,12 @@ public class JSONUtils {
     private Context contex;
     String TAG = "TAG";
 
-    public JSONUtils(RecyclerView recyclerView, Context contex) {
+    public JSONUtils(RecyclerView recyclerView, Context contex, TargetItemAdapter targetItemAdapter) {
         this.networkService = NetworkService.getInstance();
         this.sitoStoreApi = NetworkService.getApi();
         this.recyclerView = recyclerView;
-        Log.i("INFO", recyclerView.toString());
         this.contex = contex;
+        this.targetItemAdapter = targetItemAdapter;
     }
 
     public JSONUtils() {
@@ -43,9 +44,9 @@ public class JSONUtils {
         this.sitoStoreApi = NetworkService.getApi();
     }
 
-
-
-
+    public List<Product> getResProducts() {
+        return resProducts;
+    }
 
 
     public void getProductsApi(GetProducts getProducts) {
@@ -56,10 +57,8 @@ public class JSONUtils {
             @Override
             public void onResponse(Call<POJOProducts> call, Response<POJOProducts> response) {
                 resProducts = response.body().getProducts();
-                targetItemAdapter = new TargetItemAdapter(resProducts);
-                LinearLayoutManager layoutManager = new LinearLayoutManager(contex, LinearLayoutManager.VERTICAL, false);
-                recyclerView.setLayoutManager(layoutManager);
-                recyclerView.setAdapter(targetItemAdapter);
+                targetItemAdapter.setProductList(resProducts);
+                Log.i("Inf", getResProducts().size() + "");
             }
 
             @Override
@@ -79,11 +78,7 @@ public class JSONUtils {
             @Override
             public void onResponse(Call<POJOProducts> call, Response<POJOProducts> response) {
                 resProducts = response.body().getProducts();
-                targetItemAdapter = new TargetItemAdapter(resProducts);
-                RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(context);
-                recyclerView.setLayoutManager(layoutManager);
-                recyclerView.setAdapter(targetItemAdapter);
-                Log.i("PROD", resProducts.toString() + "\n" + resProducts.get(1));
+                targetItemAdapter.setProductList(resProducts);
             }
 
             @Override
@@ -101,10 +96,7 @@ public class JSONUtils {
             @Override
             public void onResponse(Call<POJOProducts> call, Response<POJOProducts> response) {
                 resProducts = response.body().getProducts();
-                targetItemAdapter = new TargetItemAdapter(resProducts);
-                RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(contex);
-                recyclerView.setLayoutManager(layoutManager);
-                recyclerView.setAdapter(targetItemAdapter);
+                targetItemAdapter.setProductList(resProducts);
             }
 
             @Override

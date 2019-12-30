@@ -30,7 +30,6 @@
                 android:id="@+id/image_view_item"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginBottom="8dp"
                 android:adjustViewBounds="true"
                 android:src="@drawable/defoult_product"
                 android:textColor="@color/white"
@@ -40,15 +39,16 @@
 
             <TextView
                 android:id="@+id/title_item_catalog"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="33dp"
+                android:layout_height="23dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
                 android:text="@string/def_title"
-                android:textAlignment="center"
+                android:textAlignment="viewStart"
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/desc_item_catalog"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/guidelineCenter"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/image_view_item" />
 
@@ -58,6 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginEnd="24dp"
+                android:layout_marginBottom="8dp"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
                 android:text="@string/def_description"
@@ -65,7 +66,7 @@
                 android:textColor="@color/white"
                 android:textStyle="italic"
                 app:layout_constraintBottom_toTopOf="@+id/oldPrice_item_catalog"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/guidelineCenter"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/title_item_catalog" />
 
@@ -73,10 +74,11 @@
                 android:id="@+id/oldPrice_item_catalog"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
                 android:text="@string/def_oldprice"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toTopOf="@+id/price_item_catalog"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/guidelineCenter"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/desc_item_catalog" />
 
@@ -88,7 +90,7 @@
                 android:text="@string/def_price"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toTopOf="@+id/TSale_item_catalog"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/guidelineCenter"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/oldPrice_item_catalog" />
 
@@ -112,9 +114,28 @@
                 android:text="@string/def_sale"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/guidelineCenter"
+                app:layout_constraintStart_toEndOf="@id/TSale_item_catalog" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineCenter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <ImageView
+                android:id="@+id/imageViewLike"
+                android:tag="false"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="7dp"
+                android:adjustViewBounds="true"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/TSale_item_catalog"
-                app:layout_constraintTop_toBottomOf="@id/price_item_catalog" />
+                app:layout_constraintStart_toStartOf="@+id/guidelineCenter"
+                app:layout_constraintTop_toBottomOf="@+id/image_view_item"
+                app:srcCompat="@drawable/icon_unfavourite" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

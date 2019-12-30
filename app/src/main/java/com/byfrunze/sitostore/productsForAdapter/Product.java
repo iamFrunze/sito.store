@@ -26,7 +26,7 @@ public class Product {
     private String brand;
     @SerializedName("size")
     @Expose
-    private List<Object> size = null;
+    private List<String> size = null;
     @SerializedName("color")
     @Expose
     private List<String> color = null;
@@ -60,6 +60,16 @@ public class Product {
     @SerializedName("createdAt")
     @Expose
     private String createdAt;
+
+    private boolean isFavourite;
+
+    public boolean isFavourite() {
+        return isFavourite;
+    }
+
+    public void setFavourite(boolean favourite) {
+        isFavourite = favourite;
+    }
 
     public String getId() {
         return id;
@@ -109,11 +119,11 @@ public class Product {
         this.brand = brand;
     }
 
-    public List<Object> getSize() {
+    public List<String> getSizes() {
         return size;
     }
 
-    public void setSize(List<Object> size) {
+    public void setSize(List<String> size) {
         this.size = size;
     }
 

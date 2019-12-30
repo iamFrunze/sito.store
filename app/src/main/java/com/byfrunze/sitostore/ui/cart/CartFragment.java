@@ -7,104 +7,44 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.byfrunze.sitostore.Adapters.ProductAdapter;
+import com.byfrunze.sitostore.Adapters.CartRealmAdapter;
+import com.byfrunze.sitostore.FavouriteDataBase;
 import com.byfrunze.sitostore.R;
-import com.byfrunze.sitostore.productsForAdapter.MyProduct;
+import com.byfrunze.sitostore.viewModels.CartViewModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class CartFragment extends Fragment{
+import io.realm.Realm;
+import io.realm.RealmResults;
+
+public class CartFragment extends Fragment {
 
 
     private RecyclerView recyclerView;
+    private CartViewModel viewModel;
+    private Realm realm;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_cart, container, false);
+        viewModel = ViewModelProviders.of(this).get(CartViewModel.class);
         recyclerView = root.findViewById(R.id.recycleViewCart);
+
+        Realm realm = Realm.getDefaultInstance();
+
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        ProductAdapter productAdapter = new ProductAdapter(arrPorducts());
-        recyclerView.setAdapter(productAdapter);
+        CartRealmAdapter adapter = new CartRealmAdapter(realm.where(FavouriteDataBase.class).findAllAsync(), true);
+        recyclerView.setAdapter(adapter);
+
         return root;
 
     }
-    public ArrayList arrPorducts(){
-        ArrayList<MyProduct> MyProducts = new ArrayList<>();
-        MyProducts.add(new MyProduct("MyTitle",
-                "myDesc",
-                "URL",
-                "https://vans.ru/upload/iblock/7fe/7fe1862d42409df558e2f36439498a8b.jpg",
-                "myBrand",
-                "mySize",
-                "myColor",
-                "myPrice",
-                "myOldPrice",
-                "mySale"));
-        MyProducts.add(new MyProduct("MyTitle",
-                "myDesc",
-                "URL",
-                "https://vans.ru/upload/iblock/7fe/7fe1862d42409df558e2f36439498a8b.jpg",
-                "myBrand",
-                "mySize",
-                "myColor",
-                "myPrice",
-                "myOldPrice",
-                "mySale"));
-        MyProducts.add(new MyProduct("MyTitle",
-                "myDesc",
-                "URL",
-                "https://vans.ru/upload/iblock/7fe/7fe1862d42409df558e2f36439498a8b.jpg",
-                "myBrand",
-                "mySize",
-                "myColor",
-                "myPrice",
-                "myOldPrice",
-                "mySale"));
-        MyProducts.add(new MyProduct("MyTitle",
-                "myDesc",
-                "URL",
-                "https://vans.ru/upload/iblock/7fe/7fe1862d42409df558e2f36439498a8b.jpg",
-                "myBrand",
-                "mySize",
-                "myColor",
-                "myPrice",
-                "myOldPrice",
-                "mySale"));
-        MyProducts.add(new MyProduct("MyTitle",
-                "myDesc",
-                "URL",
-                "https://vans.ru/upload/iblock/7fe/7fe1862d42409df558e2f36439498a8b.jpg",
-                "myBrand",
-                "mySize",
-                "myColor",
-                "myPrice",
-                "myOldPrice",
-                "mySale"));
-        MyProducts.add(new MyProduct("MyTitle",
-                "myDesc",
-                "URL",
-                "https://vans.ru/upload/iblock/7fe/7fe1862d42409df558e2f36439498a8b.jpg",
-                "myBrand",
-                "mySize",
-                "myColor",
-                "myPrice",
-                "myOldPrice",
-                "mySale"));
-        MyProducts.add(new MyProduct("MyTitle",
-                "myDesc",
-                "URL",
-                "https://vans.ru/upload/iblock/7fe/7fe1862d42409df558e2f36439498a8b.jpg",
-                "myBrand",
-                "mySize",
-                "myColor",
-                "myPrice",
-                "myOldPrice",
-                "mySale"));
 
-        return MyProducts;
-    }
 
 }
