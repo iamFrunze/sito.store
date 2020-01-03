@@ -156,15 +156,7 @@ public class TargetItemAdapter extends RecyclerView.Adapter<TargetItemAdapter.Cu
                     imageViewFavourite.setImageResource(unfavouriteIcon);
                     imageViewFavourite.setTag("false");
                 }
-//                favouriteDataBase.setId(productList.get(getLayoutPosition()).getId());
-//                favouriteDataBase.setTitle(productList.get(getLayoutPosition()).getTitle());
-//                favouriteDataBase.setDescription(productList.get(getLayoutPosition()).getDescription());
-//                favouriteDataBase.setUrl(productList.get(getLayoutPosition()).getUrl());
-//                favouriteDataBase.setImg(productList.get(getLayoutPosition()).getImg().get(0));
-//                favouriteDataBase.setBrand(productList.get(getLayoutPosition()).getBrand());
-//                favouriteDataBase.setPrice(productList.get(getLayoutPosition()).getPrice());
-//                favouriteDataBase.setOldprice(productList.get(getLayoutPosition()).getOldprice());
-//                favouriteDataBase.setSale(productList.get(getLayoutPosition()).getSale());
+
                 listener.onItemClickListener(itemView, getLayoutPosition(), (ImageView) v, productList);
 
             }

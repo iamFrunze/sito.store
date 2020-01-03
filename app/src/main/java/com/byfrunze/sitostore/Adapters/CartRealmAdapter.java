@@ -4,6 +4,8 @@ import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,9 +18,25 @@ import com.byfrunze.sitostore.R;
 import com.squareup.picasso.Picasso;
 
 import io.realm.OrderedRealmCollection;
+import io.realm.RealmChangeListener;
 import io.realm.RealmRecyclerViewAdapter;
 
-public class CartRealmAdapter extends RealmRecyclerViewAdapter<FavouriteDataBase, CartRealmAdapter.ViewHolder>  {
+public class CartRealmAdapter extends RealmRecyclerViewAdapter<FavouriteDataBase, CartRealmAdapter.ViewHolder> implements RealmChangeListener {
+
+
+    @Override
+    public void onChange(Object o) {
+        notifyDataSetChanged();
+    }
+
+    public interface OnItemClickListener{
+        void onItemClickListener(int position);
+    }
+    private OnItemClickListener onItemClickListener;
+
+    public void setOnItemClickListener(CartRealmAdapter.OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
+    }
 
     public CartRealmAdapter(@Nullable OrderedRealmCollection<FavouriteDataBase> data, boolean autoUpdate) {
         super(data, autoUpdate);
@@ -54,6 +72,7 @@ public class CartRealmAdapter extends RealmRecyclerViewAdapter<FavouriteDataBase
         TextView textViewOldPrice;
         TextView textViewPrice;
         TextView textViewSale;
+        Button btnDelete;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -63,7 +82,15 @@ public class CartRealmAdapter extends RealmRecyclerViewAdapter<FavouriteDataBase
             textViewOldPrice = itemView.findViewById(R.id.textViewRecCartOldPrice);
             textViewPrice = itemView.findViewById(R.id.textViewRecCartPrice);
             textViewSale = itemView.findViewById(R.id.textViewRecCartSale);
+            btnDelete = itemView.findViewById(R.id.buttonRecCartDelete);
+            btnDelete.setOnClickListener(v -> {
+                if(onItemClickListener != null){
+                    onItemClickListener.onItemClickListener(getAdapterPosition());
+                }
+            });
 
         }
+
+
     }
 }

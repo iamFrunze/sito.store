@@ -80,7 +80,8 @@ public class TargetItemActivity extends AppCompatActivity {
                 Log.i(TAG, "SIZE: " + mRealm.where(FavouriteDataBase.class).findAll().size());
 
             } else {
-                DataHelper.deleteItem(mRealm, listProduct, position);
+                DataHelper.deleteItem(mRealm, listProduct.get(position).getId());
+                //DataHelper.deleteItem(mRealm, listProduct, position);
                 Log.i(TAG, "onCreateDELETE: " + mRealm.where(FavouriteDataBase.class).findAllAsync());
                 Log.i(TAG, "SIZE: " + mRealm.where(FavouriteDataBase.class).findAll().size());
             }

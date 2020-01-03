@@ -28,10 +28,10 @@ public class DataHelper {
         });
     }
 
-    public static void deleteItem(Realm mRealm, List<Product> product, int pos) {
+    public static void deleteItem(Realm mRealm,String id) {
         mRealm.executeTransaction(realm -> {
             RealmResults<FavouriteDataBase> favouriteDB = mRealm.where(FavouriteDataBase.class)
-                    .equalTo("id", product.get(pos).getId()).findAll();
+                    .equalTo("id", id).findAll();
             if (!favouriteDB.isEmpty()) {
                 for (FavouriteDataBase DB : favouriteDB) {
                     Log.i("TAG", "\ndeleteItem: " + DB.getTitle());
