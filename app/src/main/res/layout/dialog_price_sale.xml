@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_margin="16dp"
+    android:layout_gravity="center"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/textViewFrom"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:text="От"
+        android:textAlignment="textEnd"
+        android:layout_margin="4dp"/>
+
+    <EditText
+        android:id="@+id/editTextFrom"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="0"
+        android:inputType="numberDecimal"
+        android:layout_margin="4dp"/>
+
+    <TextView
+        android:id="@+id/textViewTo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:textAlignment="textEnd"
+        android:text="До"
+        android:layout_margin="4dp"/>
+
+    <EditText
+        android:id="@+id/editTextTo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="100000"
+        android:inputType="numberDecimal"
+        android:layout_margin="4dp"/>
+</LinearLayout>

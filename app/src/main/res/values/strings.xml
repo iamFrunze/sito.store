@@ -20,6 +20,14 @@
     <string name="title_activity_main">MainActivity</string>
 
 
+    <string name="sex_id">Пол</string>
+    <string name="brands">Брэнд</string>
+    <string name="categories">Категории</string>
+    <string name="sizes">Размер</string>
+    <string name="colors">Цвет</string>
+    <string name="prices">Цена</string>
+    <string name="sales">Скидка</string>
+
     <string name="title_home">Главная</string>
     <string name="title_catalog">Каталог</string>
     <string name="title_cart">Избранное</string>

@@ -36,6 +36,8 @@ public class CartFragment extends Fragment {
     private TextView textViewAllSumm;
     private TextView textViewAllSale;
 
+
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
@@ -45,6 +47,9 @@ public class CartFragment extends Fragment {
         textViewAllCount = root.findViewById(R.id.textViewAllCount);
         textViewAllSumm = root.findViewById(R.id.textViewAllSumm);
         textViewAllSale = root.findViewById(R.id.textViewAllPrice);
+
+
+
         Results results = new Results();
 
 
